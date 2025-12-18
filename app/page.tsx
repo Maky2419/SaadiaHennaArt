@@ -1,6 +1,8 @@
 "use client";
 
 import Image from "next/image";
+import Link from "next/link";
+
 
 export default function Home() {
   return (
@@ -74,9 +76,9 @@ export default function Home() {
               Clean, detailed designs — from minimal florals to full hands.
             </p>
             <div className="heroCtas">
-              <a className="btnPrimary" href="/book">
-                Book an appointment
-              </a>
+              <Link href="/book" className="btnPrimary">
+  Go to Booking Page
+</Link>
               <a className="btnGhost" href="#aftercare">
                 Aftercare
               </a>
@@ -190,10 +192,9 @@ export default function Home() {
         Include: date, time, event/private, design size, placement.
       </p>
 
-      <a className="btnPrimary" href="/book">
-        Go to Booking Page
-      </a>
-
+      <Link href="/book" className="btnPrimary">
+  Book an appointment
+</Link>
       <div className="tiny muted">(We’ll build /book later.)</div>
     </div>
 

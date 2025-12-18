@@ -1,0 +1,5 @@
+{
+  "/book/confirmed/page": "app/book/confirmed/page.js",
+  "/book/page": "app/book/page.js",
+  "/api/bookings/confirm/route": "app/api/bookings/confirm/route.js"
+}
