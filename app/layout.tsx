@@ -1,7 +1,7 @@
 import "./globals.css";
 
 export const metadata = {
-  title: "Dockerized Next.js",
+  title: "Saadia Henna Art",
   description: "A minimal Next.js frontend running in Docker",
 };
 
