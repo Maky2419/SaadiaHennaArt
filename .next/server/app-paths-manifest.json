@@ -1,5 +1,5 @@
 {
-  "/book/confirmed/page": "app/book/confirmed/page.js",
+  "/page": "app/page.js",
   "/book/page": "app/book/page.js",
-  "/api/bookings/confirm/route": "app/api/bookings/confirm/route.js"
+  "/about/page": "app/about/page.js"
 }

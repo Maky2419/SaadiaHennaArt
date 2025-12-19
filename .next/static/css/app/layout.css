@@ -618,4 +618,57 @@ code{
   background: rgba(255,255,255,.28);
 }
 textarea.input{ resize: vertical; }
+/* ===== FULL-WIDTH HEADER (break out of centered main) ===== */
+.header {
+  width: 100vw;
+  margin-left: calc(50% - 50vw);
+  margin-right: calc(50% - 50vw);
+}
+
+/* optional: gives header a consistent background edge-to-edge */
+.header {
+  background: rgba(245, 236, 216, 0.9);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+}
+
+/* keep header content centered */
+.headerInner,
+.navInner {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding-left: 24px;
+  padding-right: 24px;
+}
+
+/* If navInner was constrained too tightly */
+.navRow {
+  width: 100%;
+}
+
+/* ===== REDUCE WHITE SPACE BELOW HEADER ===== */
+.sectionHead {
+  max-width: 1200px;
+  margin: 18px auto 14px; /* smaller top/bottom gap */
+  padding: 0 24px;
+}
+
+/* ===== WIDEN THE BOXES (cards) ===== */
+.card {
+  max-width: 1200px !important; /* was 900 in inline styles */
+  margin-left: auto !important;
+  margin-right: auto !important;
+}
+
+/* Less vertical spacing between cards */
+.card + .card {
+  margin-top: 24px !important;
+}
+
+/* Responsive: stack the two-column layouts nicely on small screens */
+@media (max-width: 900px) {
+  .card {
+    padding: 18px !important;
+  }
+}
+
 

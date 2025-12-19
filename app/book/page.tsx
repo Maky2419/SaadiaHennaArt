@@ -37,7 +37,7 @@ export default function BookPage() {
       const data = await res.json();
       if (!data.ok) throw new Error(data.error || "Failed to submit request");
 
-      setOk("Request sent! You’ll get an email once Saadia confirms your booking.");
+      setOk("Request sent! You’ll get an email confirmation of your bookig soon.");
       (e.target as HTMLFormElement).reset();
     } catch (ex: any) {
       setErr(ex?.message || "Something went wrong");
@@ -51,7 +51,6 @@ export default function BookPage() {
       <div className="sectionHead">
         <h1 className="h2" style={{ fontSize: 32 }}>Book an appointment</h1>
         <p className="sub">
-          Fill this out and Saadia will confirm by email.
           {" "}
           <Link className="navLink" href="/">Back to Home</Link>
         </p>
