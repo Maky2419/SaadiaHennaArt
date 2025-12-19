@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import { useState } from "react";
 
 export default function BookPage() {
@@ -37,7 +38,7 @@ export default function BookPage() {
       const data = await res.json();
       if (!data.ok) throw new Error(data.error || "Failed to submit request");
 
-      setOk("Request sent! You’ll get an email confirmation of your bookig soon.");
+      setOk("Request sent! You’ll get an email confirmation of your booking soon.");
       (e.target as HTMLFormElement).reset();
     } catch (ex: any) {
       setErr(ex?.message || "Something went wrong");
@@ -47,16 +48,46 @@ export default function BookPage() {
   }
 
   return (
-    <div className="main">
-      <div className="sectionHead">
+    <main className="main">
+      {/* Header */}
+      <header className="header">
+        <div className="headerInner">
+          <div className="brandLeft" style={{ display: "flex", alignItems: "center", gap: 14 }}>
+            <div className="brandLogoImg">
+              <Image
+                src="/logo.jpg"
+                alt="Saadia's Henna Art logo"
+                fill
+                priority
+                sizes="56px"
+                style={{ objectFit: "cover" }}
+              />
+            </div>
+            <div className="brandTitle">Saadia Henna Art</div>
+          </div>
+        </div>
+
+        <nav className="navRow" aria-label="Primary navigation">
+          <div className="navInner">
+            <a className="navLink" href="/">Home</a>
+            <a className="navLink" href="/designs">Designs</a>
+            <a className="navLink" href="/history">History of Events</a>
+            <a className="navLink" href="/upcoming">Events to come</a>
+            <a className="navLink" href="/book">Book an appointment</a>
+            <a className="navLink" href="/about">About me</a>
+          </div>
+        </nav>
+      </header>
+
+      {/* Page intro */}
+      <section className="sectionHead">
         <h1 className="h2" style={{ fontSize: 32 }}>Book an appointment</h1>
         <p className="sub">
-          {" "}
-          <Link className="navLink" href="/">Back to Home</Link>
         </p>
-      </div>
+      </section>
 
-      <form className="card" onSubmit={onSubmit} style={{ maxWidth: 820 }}>
+      {/* Booking form */}
+      <form className="card" onSubmit={onSubmit} style={{ maxWidth: 820, margin: "0 auto" }}>
         <div className="formGrid">
           <div className="field">
             <label className="label">Full name *</label>
@@ -99,7 +130,12 @@ export default function BookPage() {
 
           <div className="field" style={{ gridColumn: "1 / -1" }}>
             <label className="label">Notes (optional)</label>
-            <textarea className="input" name="notes" rows={4} placeholder="Design size, placement, inspo, etc." />
+            <textarea
+              className="input"
+              name="notes"
+              rows={4}
+              placeholder="Design size, placement, inspiration, etc."
+            />
           </div>
         </div>
 
@@ -111,6 +147,6 @@ export default function BookPage() {
           {err && <span style={{ color: "#7a1f1a", fontWeight: 800 }}>{err}</span>}
         </div>
       </form>
-    </div>
+    </main>
   );
 }

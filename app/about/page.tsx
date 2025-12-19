@@ -8,46 +8,47 @@ export default function AboutPage() {
     
     <main className="main">
 
-         {/* Header */}
- {/* Header */}
-      <header className="header">
-        <div className="headerInner">
-          {/* Left side (optional placeholder to keep layout balanced) */}
-          <div className="headerSide" />
-
-          {/* Center brand (logo + title) */}
-          <div className="brandCenter">
-            <div className="brandLogoImg">
-              <Image
-                src="/logo.jpg"
-                alt="Saadia's Henna Art logo"
-                fill
-                priority
-                sizes="56px"
-                style={{ objectFit: "cover" }}
-              />
-            </div>
-
-            <div className="brandTitle">Saadia Henna Art</div>
-          </div>
-
-          {/* Right side (empty to keep layout balanced) */}
-          <div className="headerSide headerSideRight" />
-        </div>
-
-        {/* Nav row */}
-        <nav className="navRow" aria-label="Primary navigation">
-          <div className="navInner">
-            <a className="navLink" href="/">Home</a>
-            <a className="navLink" href="/designs">Designs</a>
-            <a className="navLink" href="/history">History of Events</a>
-            <a className="navLink" href="/upcoming">Events to come</a>
-            <a className="navLink" href="/book">Book an apointment</a>
-            <a className="navLink" href="/about">About me</a>
-            <a className="navLink" href="/contact">Contact</a>
-          </div>
-        </nav>
-      </header>
+       <header className="header">
+               <div className="headerInner">
+                 <div className="brandLeft" style={{ display: "flex", alignItems: "center", gap: 14 }}>
+                   <div className="brandLogoImg">
+                     <Image
+                       src="/logo.jpg"
+                       alt="Saadia's Henna Art logo"
+                       fill
+                       priority
+                       sizes="56px"
+                       style={{ objectFit: "cover" }}
+                     />
+                   </div>
+                   <div className="brandTitle">Saadia Henna Art</div>
+                 </div>
+               </div>
+       
+               <nav className="navRow" aria-label="Primary navigation">
+                 <div className="navInner">
+                   <a className="navLink" href="/">
+                     Home
+                   </a>
+                   <a className="navLink" href="/designs">
+                     Designs
+                   </a>
+                   <a className="navLink" href="/history">
+                     History of Events
+                   </a>
+                   <a className="navLink" href="/upcoming">
+                     Events to come
+                   </a>
+                   <a className="navLink" href="/book">
+                     Book an appointment
+                   </a>
+                   <a className="navLink" href="/about">
+                     About me
+                   </a>
+                
+                 </div>
+               </nav>
+             </header>
 
       {/* Header */}
       <section className="sectionHead">
