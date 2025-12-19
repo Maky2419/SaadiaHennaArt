@@ -9,38 +9,46 @@ export default function AboutPage() {
     <main className="main">
 
          {/* Header */}
-<header className="header">
-  <div className="headerInner headerLeftAligned">
-    {/* Left: brand */}
-    <div className="brandLeft">
-      <div className="brandLogoImg">
-        <Image
-          src="/logo.jpg"
-          alt="Saadia's Henna Art logo"
-          fill
-          priority
-          sizes="56px"
-          style={{ objectFit: "cover" }}
-        />
-      </div>
+ {/* Header */}
+      <header className="header">
+        <div className="headerInner">
+          {/* Left side (optional placeholder to keep layout balanced) */}
+          <div className="headerSide" />
 
-      <div className="brandTitle">Saadia Henna Art</div>
-    </div>
-  </div>
+          {/* Center brand (logo + title) */}
+          <div className="brandCenter">
+            <div className="brandLogoImg">
+              <Image
+                src="/logo.jpg"
+                alt="Saadia's Henna Art logo"
+                fill
+                priority
+                sizes="56px"
+                style={{ objectFit: "cover" }}
+              />
+            </div>
 
-  {/* Nav row */}
-  <nav className="navRow" aria-label="Primary navigation">
-    <div className="navInner">
-      <a className="navLink" href="/">Home</a>
-      <a className="navLink" href="/designs">Designs</a>
-      <a className="navLink" href="/history">History of Events</a>
-      <a className="navLink" href="/upcoming">Events to come</a>
-      <a className="navLink" href="/book">Book an appointment</a>
-      <a className="navLink" href="/about">About me</a>
-      <a className="navLink" href="/contact">Contact</a>
-    </div>
-  </nav>
-</header>
+            <div className="brandTitle">Saadia Henna Art</div>
+          </div>
+
+          {/* Right side (empty to keep layout balanced) */}
+          <div className="headerSide headerSideRight" />
+        </div>
+
+        {/* Nav row */}
+        <nav className="navRow" aria-label="Primary navigation">
+          <div className="navInner">
+            <a className="navLink" href="/">Home</a>
+            <a className="navLink" href="/designs">Designs</a>
+            <a className="navLink" href="/history">History of Events</a>
+            <a className="navLink" href="/upcoming">Events to come</a>
+            <a className="navLink" href="/book">Book an apointment</a>
+            <a className="navLink" href="/about">About me</a>
+            <a className="navLink" href="/contact">Contact</a>
+          </div>
+        </nav>
+      </header>
+
       {/* Header */}
       <section className="sectionHead">
         <h1 className="h2">About Me</h1>
@@ -57,17 +65,19 @@ export default function AboutPage() {
           display: "grid",
           gridTemplateColumns: "320px 1fr",
           gap: 32,
-          alignItems: "start",
+          alignItems: "center",
         }}
       >
         {/* Saadia Photo */}
         <div
-          style={{
-            display: "flex",
-            flexDirection: "column",
-            alignItems: "center",
-          }}
-        >
+  style={{
+    display: "flex",
+    flexDirection: "column",
+    alignItems: "center",
+    justifyContent: "center",
+    height: "100%",
+  }}
+>
           <Image
             src="/saadia.jpg"
             alt="Saadia – Henna Artist"
@@ -127,11 +137,13 @@ export default function AboutPage() {
       >
         {/* Circular Logo */}
         <div
-          style={{
-            display: "flex",
-            justifyContent: "center",
-          }}
-        >
+  style={{
+    display: "flex",
+    justifyContent: "center",
+    alignItems: "center",
+    height: "100%",
+  }}
+>
           <Image
             src="/logo.png"
             alt="Saadia’s Henna Art Logo"
