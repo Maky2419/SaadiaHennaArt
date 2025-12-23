@@ -125,7 +125,6 @@ export default function Home() {
         <section className="section">
           <div className="sectionHead">
             <h2 className="h2">Designs</h2>
-            <p className="sub">Replace these placeholders with your actual photos.</p>
           </div>
 
           <div className="photoGrid">
@@ -163,7 +162,7 @@ export default function Home() {
     {/* Aftercare */}
     <div className="card">
       <h2 className="h2">Henna Aftercare</h2>
-      <p className="sub">Do this for the darkest, longest-lasting stain.</p>
+      <p className="h3">Do this for the darkest, longest-lasting stain.</p>
 
       <ul className="list">
         <li><span className="bullet" /> Keep paste on for at least 1 hour (longer = darker).</li>
@@ -177,7 +176,6 @@ export default function Home() {
     {/* Booking */}
     <div className="card">
       <h2 className="h2">Book an appointment</h2>
-      <p className="sub">This button goes to a new page you’ll code later.</p>
 
       <div className="priceRow">
         <div className="priceBox">
@@ -198,7 +196,6 @@ export default function Home() {
       <Link href="/book" className="btnPrimary">
   Book an appointment
 </Link>
-      <div className="tiny muted">(We’ll build /book later.)</div>
     </div>
 
   </div>
