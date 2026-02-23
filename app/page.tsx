@@ -30,7 +30,7 @@ export default function Home() {
                       style={{ objectFit: "cover" }}
                     />
                   </div>
-                  <div className="brandTitle">Saadia Henna Art</div>
+                  <div className="brandTitle">Saadia's Henna Art</div>
                 </div>
               </div>
       

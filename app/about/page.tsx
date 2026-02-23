@@ -21,7 +21,7 @@ export default function AboutPage() {
                        style={{ objectFit: "cover" }}
                      />
                    </div>
-                   <div className="brandTitle">Saadia Henna Art</div>
+                   <div className="brandTitle">Saadia's Henna Art</div>
                  </div>
                </div>
        
@@ -146,7 +146,7 @@ export default function AboutPage() {
   }}
 >
           <Image
-            src="/logo.png"
+            src="/logo.jpg"
             alt="Saadia’s Henna Art Logo"
             width={280}
             height={280}
