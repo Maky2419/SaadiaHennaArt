@@ -22,36 +22,39 @@ type Design = {
 };
 
 const DESIGNS: Design[] = [
-  {
-    id: "floral-1",
-    priceFrom: 10,
-    priceTo: 15,
-    tags: ["Floral"],
-    image: "/designs/floral-1.jpeg",
-    note: "Perfect for quick walk-ins.",
-  },
-  {
-    id: "mandala-1",
-    priceFrom: 20,
-    priceTo: 30,
-    tags: ["Mandala"],
-    image: "/designs/mandala-1.jpg",
-  },
-  {
-    id: "tattoo-1",
-    priceFrom: 25,
-    priceTo: 40,
-    tags: ["Tattoo Style"],
-    image: "/designs/arabic-sweep-1.jpg",
-  },
-  {
-    id: "dome-1",
-    priceFrom: 70,
-    priceTo: 120,
-    tags: ["Dome", "Floral"],
-    image: "/designs/bridal-hand-1.jpg",
-    note: "Best booked in advance.",
-  },
+  { id: "blackhennadomevines", priceFrom: 0, priceTo: 0, tags: ["Black Henna","Dome","Vines"], image: "/designs/Blackhennadomevines.jpeg" },
+
+  { id: "blackhenna-vines-1", priceFrom: 0, priceTo: 0, tags: ["Black Henna","Vines"], image: "/designs/BlackhennaVines-1.jpeg" },
+
+  { id: "blackhenna-vinesfloral-1", priceFrom: 0, priceTo: 0, tags: ["Black Henna","Floral","Vines"], image: "/designs/Blackhennavinesfloral-1.jpeg" },
+
+  { id: "blackhenna-vinesfloral-2", priceFrom: 0, priceTo: 0, tags: ["Black Henna","Floral","Vines"], image: "/designs/Blackhennavinesfloral-2.jpeg" },
+
+  { id: "dome-1", priceFrom: 0, priceTo: 0, tags: ["Dome"], image: "/designs/Dome-1.jpeg" },
+
+  { id: "floral-1", priceFrom: 0, priceTo: 0, tags: ["Floral"], image: "/designs/floral-1.jpeg" },
+
+  { id: "floral-2", priceFrom: 0, priceTo: 0, tags: ["Floral"], image: "/designs/floral-2.JPG" },
+
+  { id: "floral-3", priceFrom: 0, priceTo: 0, tags: ["Floral"], image: "/designs/floral-3.jpeg" },
+
+  { id: "floral-4", priceFrom: 0, priceTo: 0, tags: ["Floral"], image: "/designs/floral-4.jpeg" },
+
+  { id: "floral-dome-blackhenna", priceFrom: 0, priceTo: 0, tags: ["Floral","Dome","Black Henna"], image: "/designs/Floraldomeblackhenna-1.jpeg" },
+
+  { id: "floral-mandala-vines-blackhenna", priceFrom: 0, priceTo: 0, tags: ["Floral","Mandala","Vines","Black Henna"], image: "/designs/Floralmandalavinesblackhenna-1.JPG" },
+
+  { id: "minimalistic-vines-1", priceFrom: 0, priceTo: 0, tags: ["Minimalistic","Vines"], image: "/designs/MinimalisticVines-1.jpeg" },
+
+  { id: "minimalistic-1", priceFrom: 0, priceTo: 0, tags: ["Minimalistic"], image: "/designs/simplistic-1.jpeg" },
+
+  { id: "tattoo-1", priceFrom: 0, priceTo: 0, tags: ["Tattoo Style"], image: "/designs/tattoo-1.jpeg" },
+
+  { id: "tattoo-2", priceFrom: 0, priceTo: 0, tags: ["Tattoo Style"], image: "/designs/tattoo-2.jpeg" },
+
+  { id: "vines-1", priceFrom: 0, priceTo: 0, tags: ["Vines"], image: "/designs/Vines-1.JPG" },
+
+  { id: "vines-dome-minimalistic-1", priceFrom: 0, priceTo: 0, tags: ["Vines","Dome","Minimalistic"], image: "/designs/Vinesdomeminimalistic-1.jpeg" },
 ];
 
 const ALL_TAGS: StyleTag[] = [

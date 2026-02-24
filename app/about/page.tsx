@@ -79,18 +79,14 @@ export default function AboutPage() {
     height: "100%",
   }}
 >
-          <Image
-            src="/saadia.jpg"
-            alt="Saadia – Henna Artist"
-            width={300}
-            height={300}
-            priority
-            style={{
-              borderRadius: "50%",
-              objectFit: "cover",
-              boxShadow: "0 12px 30px rgba(0,0,0,0.18)",
-            }}
-          />
+         <Image
+  src="/saadia.jpg"
+  alt="Saadia – Henna Artist"
+  width={300}
+  height={300}
+  priority
+  style={{ objectFit: "cover" }}
+/>
           <p style={{ marginTop: 14, opacity: 0.85 }}>
             Saadia — Henna Artist
           </p>

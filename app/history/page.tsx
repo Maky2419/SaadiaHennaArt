@@ -17,59 +17,73 @@ type PastEvent = {
 
 const EVENTS: PastEvent[] = [
   {
-    id: "spring-festival-2025",
+    id: "black-history-month-market",
     year: 2025,
-    title: "Spring Festival Henna Booth",
-    date: "April 2025",
-    location: "UBC Okanagan",
-    description:
-      "A busy spring event with lots of walk-in designs — florals, vines, and quick mini pieces. Clean linework and fast-drying finishes for high traffic.",
-    images: [
-      { src: "/events/spring-festival-2025-1.jpg", alt: "Spring Festival henna 1" },
-      { src: "/events/spring-festival-2025-2.jpg", alt: "Spring Festival henna 2" },
-      { src: "/events/spring-festival-2025-3.jpg", alt: "Spring Festival henna 3" },
-      { src: "/events/spring-festival-2025-4.jpg", alt: "Spring Festival henna 4" },
-    ],
-  },
-  {
-    id: "mehndi-night-2025",
-    year: 2025,
-    title: "Mehndi Night",
-    date: "March 2025",
+    title: "Black History Month Market",
+    date: "2025",
     location: "Kelowna",
     description:
-      "A classic mehndi night with detailed bridal-inspired patterns, mandalas, and mixed styles. Designed to photograph beautifully under warm lighting.",
+      "Community market event offering walk-in henna designs ranging from minimalist to detailed florals.",
     images: [
-      { src: "/events/mehndi-night-2025-1.jpg", alt: "Mehndi Night henna 1" },
-      { src: "/events/mehndi-night-2025-2.jpg", alt: "Mehndi Night henna 2" },
-      { src: "/events/mehndi-night-2025-3.jpg", alt: "Mehndi Night henna 3" },
+      { src: "/events/BlackHistoryMonthmarket.png", alt: "Black History Month market henna" },
     ],
   },
+
   {
-    id: "culture-night-2024",
-    year: 2024,
-    title: "Culture Night Pop-Up",
-    date: "October 2024",
+    id: "carnival",
+    year: 2025,
+    title: "Campus Carnival",
+    date: "2025",
     location: "UBC Okanagan",
     description:
-      "A pop-up henna table featuring minimalist designs and medium-complexity pieces — elegant, wearable, and quick to apply.",
+      "Busy carnival booth featuring quick florals, vines, and custom mini designs throughout the day.",
     images: [
-      { src: "/events/culture-night-2024-1.jpg", alt: "Culture Night henna 1" },
-      { src: "/events/culture-night-2024-2.jpg", alt: "Culture Night henna 2" },
-      { src: "/events/culture-night-2024-3.jpg", alt: "Culture Night henna 3" },
+      { src: "/events/Carnival-1.jpeg", alt: "Carnival henna 1" },
+      { src: "/events/Carnival-2.jpeg", alt: "Carnival henna 2" },
+      { src: "/events/Carnival-3.jpeg", alt: "Carnival henna 3" },
     ],
   },
+
   {
-    id: "wrc-mehndi-2024",
-    year: 2024,
-    title: "WRC Mehndi Event",
-    date: "September 2024",
-    location: "Women’s Resource Centre",
+    id: "diwali-event",
+    year: 2025,
+    title: "Indian Student Association Diwali",
+    date: "2025",
+    location: "Kelowna",
     description:
-      "A community-based event with a mix of quick designs and detailed pieces. The goal was to make henna approachable with options for different time lengths.",
+      "Festive Diwali event featuring mandalas, florals, and detailed celebration designs.",
     images: [
-      { src: "/events/wrc-mehndi-2024-1.jpg", alt: "WRC mehndi henna 1" },
-      { src: "/events/wrc-mehndi-2024-2.jpg", alt: "WRC mehndi henna 2" },
+      { src: "/events/IndianStudentAssociationDiwali-1.jpeg", alt: "Diwali henna 1" },
+      { src: "/events/IndianStudentAssociationDiwali-2.jpeg", alt: "Diwali henna 2" },
+    ],
+  },
+
+  {
+    id: "okanagan-asian-cultural-fest",
+    year: 2025,
+    title: "Okanagan Asian Cultural Fest",
+    date: "2025",
+    location: "Kelowna",
+    description:
+      "Large community festival booth offering a mix of floral, mandala, and custom designs.",
+    images: [
+      { src: "/events/OkanaganAsianCulturalFest-1.jpeg", alt: "Asian fest henna 1" },
+      { src: "/events/OkanaganAsianCulturalFest-2.jpeg", alt: "Asian fest henna 2" },
+      { src: "/events/OkanaganAsianCulturalFest-3.jpeg", alt: "Asian fest henna 3" },
+      { src: "/events/OkanaganAsianCulturalFest-4.jpeg", alt: "Asian fest henna 4" },
+    ],
+  },
+
+  {
+    id: "wrc-hijab-day",
+    year: 2024,
+    title: "Women Resource Center – World Hijab Day",
+    date: "2024",
+    location: "Women Resource Center",
+    description:
+      "Community event with approachable henna styles and custom requests.",
+    images: [
+      { src: "/events/WomenResourceCenterWorldHijabDayEvent.jpeg", alt: "WRC henna design" },
     ],
   },
 ];
