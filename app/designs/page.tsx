@@ -1,68 +1,68 @@
 "use client";
 
 import Image from "next/image";
-import { useEffect, useMemo, useState } from "react";
+import { useMemo, useState, useEffect } from "react";
 
-type StyleTag = "Minimal" | "Floral" | "Bridal" | "Arabic" | "Indo-Pak" | "Mandalas" | "Modern";
+type StyleTag =
+  | "Floral"
+  | "Minimalistic"
+  | "Mandala"
+  | "Vines"
+  | "Tattoo Style"
+  | "Dome"
+  | "Black Henna";
 
 type Design = {
   id: string;
-  title: string;
   priceFrom: number;
   priceTo: number;
-  timeMins: number; // estimated
   tags: StyleTag[];
   image: string; // /public path
   note?: string;
-  createdISO?: string; // optional for "newest"
 };
 
 const DESIGNS: Design[] = [
   {
-    id: "mini-floral-1",
-    title: "Mini Floral Vine",
+    id: "floral-1",
     priceFrom: 10,
     priceTo: 15,
-    timeMins: 10,
-    tags: ["Floral", "Minimal"],
-    image: "/designs/mini-floral-1.jpg",
-    createdISO: "2025-11-15",
+    tags: ["Floral"],
+    image: "/designs/floral-1.jpeg",
     note: "Perfect for quick walk-ins.",
   },
   {
     id: "mandala-1",
-    title: "Mandalas + Dotwork",
     priceFrom: 20,
     priceTo: 30,
-    timeMins: 20,
-    tags: ["Mandalas", "Modern"],
+    tags: ["Mandala"],
     image: "/designs/mandala-1.jpg",
-    createdISO: "2025-10-22",
   },
   {
-    id: "arabic-sweep-1",
-    title: "Arabic Sweep",
+    id: "tattoo-1",
     priceFrom: 25,
     priceTo: 40,
-    timeMins: 25,
-    tags: ["Arabic", "Floral"],
+    tags: ["Tattoo Style"],
     image: "/designs/arabic-sweep-1.jpg",
-    createdISO: "2025-09-05",
   },
   {
-    id: "bridal-hand-1",
-    title: "Bridal Hand (Detailed)",
+    id: "dome-1",
     priceFrom: 70,
     priceTo: 120,
-    timeMins: 75,
-    tags: ["Bridal", "Indo-Pak", "Floral"],
+    tags: ["Dome", "Floral"],
     image: "/designs/bridal-hand-1.jpg",
-    createdISO: "2025-08-18",
     note: "Best booked in advance.",
   },
 ];
 
-const ALL_TAGS: StyleTag[] = ["Minimal", "Floral", "Bridal", "Arabic", "Indo-Pak", "Mandalas", "Modern"];
+const ALL_TAGS: StyleTag[] = [
+  "Floral",
+  "Minimalistic",
+  "Mandala",
+  "Vines",
+  "Tattoo Style",
+  "Dome",
+  "Black Henna",
+];
 
 function formatPriceRange(a: number, b: number) {
   return a === b ? `$${a}` : `$${a}–$${b}`;
@@ -71,74 +71,53 @@ function formatPriceRange(a: number, b: number) {
 function TopHeader() {
   return (
     <header className="header">
-            <div className="headerInner">
-              <div className="brandLeft" style={{ display: "flex", alignItems: "center", gap: 14 }}>
-                <div className="brandLogoImg">
-                  <Image
-                    src="/logo.jpg"
-                    alt="Saadia's Henna Art logo"
-                    fill
-                    priority
-                    sizes="56px"
-                    style={{ objectFit: "cover" }}
-                  />
-                </div>
-                <div className="brandTitle">Saadia's Henna Art</div>
-              </div>
-            </div>
-    
-            <nav className="navRow" aria-label="Primary navigation">
-              <div className="navInner">
-                <a className="navLink" href="/">
-                  Home
-                </a>
-                <a className="navLink" href="/designs">
-                  Designs
-                </a>
-                <a className="navLink" href="/history">
-                  History of Events
-                </a>
-                <a className="navLink" href="/upcoming">
-                  Events to come
-                </a>
-                <a className="navLink" href="/book">
-                  Book an appointment
-                </a>
-                <a className="navLink" href="/about">
-                  About me
-                </a>
-            
-              </div>
-            </nav>
-          </header>
-  );
-}
+      <div className="headerInner">
+        <div className="brandLeft" style={{ display: "flex", alignItems: "center", gap: 14 }}>
+          <div className="brandLogoImg">
+            <Image
+              src="/logo.jpg"
+              alt="Saadia's Henna Art logo"
+              fill
+              priority
+              sizes="56px"
+              style={{ objectFit: "cover" }}
+            />
+          </div>
+          <div className="brandTitle">Saadia's Henna Art</div>
+        </div>
+      </div>
 
-function TagPill({ active, label, onClick }: { active: boolean; label: string; onClick: () => void }) {
-  return (
-    <button
-      type="button"
-      onClick={onClick}
-      style={{
-        borderRadius: 999,
-        padding: "8px 12px",
-        border: "1px solid rgba(0,0,0,0.14)",
-        background: active ? "rgba(59,42,34,0.12)" : "rgba(255,255,255,0.25)",
-        cursor: "pointer",
-        fontWeight: 900,
-        letterSpacing: 0.5,
-        fontSize: 12,
-      }}
-    >
-      {label}
-    </button>
+      <nav className="navRow" aria-label="Primary navigation">
+        <div className="navInner">
+          <a className="navLink" href="/">
+            Home
+          </a>
+          <a className="navLink" href="/designs">
+            Designs
+          </a>
+          <a className="navLink" href="/history">
+            History of Events
+          </a>
+          <a className="navLink" href="/upcoming">
+            Events to come
+          </a>
+          <a className="navLink" href="/book">
+            Book an appointment
+          </a>
+          <a className="navLink" href="/about">
+            About me
+          </a>
+        </div>
+      </nav>
+    </header>
   );
 }
 
 export default function DesignsPage() {
   const [q, setQ] = useState("");
-  const [tag, setTag] = useState<StyleTag | "All">("All");
-  const [sort, setSort] = useState<"Recommended" | "PriceLow" | "PriceHigh" | "Newest">("Recommended");
+  const [type, setType] = useState<StyleTag | "All">("All");
+  const [maxPrice, setMaxPrice] = useState<number | "">("");
+
   const [lightbox, setLightbox] = useState<Design | null>(null);
 
   // ESC closes lightbox
@@ -153,33 +132,20 @@ export default function DesignsPage() {
   const filtered = useMemo(() => {
     const needle = q.trim().toLowerCase();
 
-    let list = DESIGNS.filter((d) => {
-      const matchesQ =
+    return DESIGNS.filter((d) => {
+      const matchesSearch =
         !needle ||
-        d.title.toLowerCase().includes(needle) ||
+        d.id.toLowerCase().includes(needle) ||
         (d.note ?? "").toLowerCase().includes(needle) ||
         d.tags.some((t) => t.toLowerCase().includes(needle));
 
-      const matchesTag = tag === "All" || d.tags.includes(tag);
+      const matchesType = type === "All" || d.tags.includes(type);
 
-      return matchesQ && matchesTag;
+      const matchesPrice = maxPrice === "" ? true : d.priceFrom <= maxPrice;
+
+      return matchesSearch && matchesType && matchesPrice;
     });
-
-    if (sort === "PriceLow") list = list.sort((a, b) => a.priceFrom - b.priceFrom);
-    if (sort === "PriceHigh") list = list.sort((a, b) => b.priceTo - a.priceTo);
-    if (sort === "Newest") list = list.sort((a, b) => (b.createdISO ?? "").localeCompare(a.createdISO ?? ""));
-
-    // Recommended: keep default order, but put bridal slightly later for casual browsing
-    if (sort === "Recommended") {
-      list = list.sort((a, b) => {
-        const ba = a.tags.includes("Bridal") ? 1 : 0;
-        const bb = b.tags.includes("Bridal") ? 1 : 0;
-        return ba - bb;
-      });
-    }
-
-    return list;
-  }, [q, tag, sort]);
+  }, [q, type, maxPrice]);
 
   return (
     <main className="main">
@@ -187,168 +153,147 @@ export default function DesignsPage() {
 
       <section className="sectionHead" style={{ marginBottom: 10 }}>
         <h1 className="h2">Designs</h1>
-        <p className="sub">Browse design samples, prices, and time estimates. Click any photo to zoom.</p>
+        <p className="sub">Click any image to view larger.</p>
       </section>
 
-      {/* Sticky filters */}
-      <div
-        style={{
-          position: "sticky",
-          top: 0,
-          zIndex: 20,
-          background: "rgba(245, 236, 216, 0.92)",
-          borderBottom: "1px solid rgba(0,0,0,0.08)",
-          backdropFilter: "blur(8px)",
-        }}
-      >
-        <div style={{ maxWidth: 1200, margin: "0 auto", padding: "10px 24px" }}>
-          <div
+      {/* Filters */}
+      <div style={{ maxWidth: 1800, margin: "0 auto", padding: "10px 16px" }}>
+        <div
+          style={{
+            display: "grid",
+            gridTemplateColumns: "1fr 220px 150px",
+            gap: 10,
+            alignItems: "center",
+          }}
+        >
+          <input
+            value={q}
+            onChange={(e) => setQ(e.target.value)}
+            placeholder="Search…"
             style={{
-              display: "grid",
-              gridTemplateColumns: "1fr 190px 210px",
-              gap: 10,
-              alignItems: "center",
+              width: "100%",
+              padding: "10px 12px",
+              borderRadius: 12,
+              border: "1px solid rgba(0,0,0,0.14)",
+              background: "rgba(255,255,255,0.30)",
+              outline: "none",
+            }}
+          />
+
+          <select
+            value={type}
+            onChange={(e) => setType(e.target.value as any)}
+            style={{
+              padding: "10px 12px",
+              borderRadius: 12,
+              border: "1px solid rgba(0,0,0,0.14)",
+              background: "rgba(255,255,255,0.30)",
+              outline: "none",
+              fontWeight: 800,
+            }}
+            aria-label="Filter by design type"
+          >
+            <option value="All">All types</option>
+            {ALL_TAGS.map((t) => (
+              <option key={t} value={t}>
+                {t}
+              </option>
+            ))}
+          </select>
+
+          <input
+            type="number"
+            value={maxPrice}
+            onChange={(e) => setMaxPrice(e.target.value === "" ? "" : Number(e.target.value))}
+            placeholder="Max $"
+            style={{
+              padding: "10px 12px",
+              borderRadius: 12,
+              border: "1px solid rgba(0,0,0,0.14)",
+              background: "rgba(255,255,255,0.30)",
+              outline: "none",
+              fontWeight: 800,
+            }}
+            aria-label="Max price"
+          />
+        </div>
+
+        <div style={{ display: "flex", justifyContent: "flex-end", marginTop: 10 }}>
+          <button
+            type="button"
+            onClick={() => {
+              setQ("");
+              setType("All");
+              setMaxPrice("");
+            }}
+            style={{
+              borderRadius: 12,
+              padding: "8px 12px",
+              border: "1px solid rgba(0,0,0,0.14)",
+              background: "rgba(255,255,255,0.25)",
+              cursor: "pointer",
+              fontWeight: 900,
+              letterSpacing: 0.5,
             }}
           >
-            <input
-              value={q}
-              onChange={(e) => setQ(e.target.value)}
-              placeholder="Search designs (floral, bridal, mandala…)…"
-              style={{
-                width: "100%",
-                padding: "10px 12px",
-                borderRadius: 12,
-                border: "1px solid rgba(0,0,0,0.14)",
-                background: "rgba(255,255,255,0.30)",
-                outline: "none",
-              }}
-            />
+            Clear
+          </button>
+        </div>
 
-            <select
-              value={tag}
-              onChange={(e) => setTag(e.target.value as any)}
-              style={{
-                padding: "10px 12px",
-                borderRadius: 12,
-                border: "1px solid rgba(0,0,0,0.14)",
-                background: "rgba(255,255,255,0.30)",
-                outline: "none",
-                fontWeight: 800,
-              }}
-              aria-label="Filter by style"
-            >
-              <option value="All">All styles</option>
-              {ALL_TAGS.map((t) => (
-                <option key={t} value={t}>
-                  {t}
-                </option>
-              ))}
-            </select>
+        <style jsx>{`
+          @media (max-width: 980px) {
+            div[style*="grid-template-columns: 1fr 220px 150px"] {
+              grid-template-columns: 1fr !important;
+            }
+          }
+        `}</style>
+      </div>
 
-            <select
-              value={sort}
-              onChange={(e) => setSort(e.target.value as any)}
-              style={{
-                padding: "10px 12px",
-                borderRadius: 12,
-                border: "1px solid rgba(0,0,0,0.14)",
-                background: "rgba(255,255,255,0.30)",
-                outline: "none",
-                fontWeight: 800,
-              }}
-              aria-label="Sort designs"
-            >
-              <option value="Recommended">Recommended</option>
-              <option value="Newest">Newest</option>
-              <option value="PriceLow">Price: Low → High</option>
-              <option value="PriceHigh">Price: High → Low</option>
-            </select>
-          </div>
-
-          {/* quick tags + clear */}
-          <div style={{ display: "flex", gap: 10, flexWrap: "wrap", marginTop: 10, alignItems: "center" }}>
-            <TagPill active={tag === "All"} label="All" onClick={() => setTag("All")} />
-            {ALL_TAGS.map((t) => (
-              <TagPill key={t} active={tag === t} label={t} onClick={() => setTag(t)} />
-            ))}
-
+      {/* Gallery */}
+      <div style={{ maxWidth: 1800, margin: "0 auto", padding: "8px 16px 40px" }}>
+        {filtered.length === 0 ? (
+          <div style={{ padding: 18, borderRadius: 16, border: "1px solid rgba(0,0,0,0.12)" }}>
+            <div style={{ fontWeight: 900, marginBottom: 8 }}>No designs match your filters</div>
             <button
               type="button"
               onClick={() => {
                 setQ("");
-                setTag("All");
-                setSort("Recommended");
+                setType("All");
+                setMaxPrice("");
               }}
               style={{
-                marginLeft: "auto",
-                borderRadius: 12,
-                padding: "8px 12px",
+                borderRadius: 10,
+                padding: "10px 12px",
                 border: "1px solid rgba(0,0,0,0.14)",
                 background: "rgba(255,255,255,0.25)",
                 cursor: "pointer",
                 fontWeight: 900,
-                letterSpacing: 0.5,
               }}
             >
-              Clear
+              Reset
             </button>
           </div>
-
-          <style jsx>{`
-            @media (max-width: 980px) {
-              div[style*="grid-template-columns: 1fr 190px 210px"] {
-                grid-template-columns: 1fr !important;
-              }
-            }
-          `}</style>
-        </div>
-      </div>
-
-      {/* Grid */}
-      <div style={{ maxWidth: 1200, margin: "0 auto", padding: "0 24px 70px" }}>
-        {filtered.length === 0 ? (
-          <section className="card" style={{ margin: "18px auto 0", textAlign: "center" }}>
-            <h2 className="h3" style={{ marginTop: 0 }}>
-              No designs match your filters
-            </h2>
-            <p style={{ marginBottom: 18, opacity: 0.9 }}>
-              Try a different search or pick another style tag.
-            </p>
-            <button
-              type="button"
-              className="btnPrim"
-              onClick={() => {
-                setQ("");
-                setTag("All");
-                setSort("Recommended");
-              }}
-            >
-              Reset filters
-            </button>
-          </section>
         ) : null}
 
         <div
           style={{
-            marginTop: 18,
+            marginTop: 14,
             display: "grid",
-            gridTemplateColumns: "repeat(12, 1fr)",
-            gap: 14,
+            gridTemplateColumns: "repeat(3, 1fr)",
+            gap: 10, // tighter
           }}
         >
           {filtered.map((d) => (
             <div
               key={d.id}
-              id={d.id}
-              className="card"
               style={{
-                margin: 0,
-                gridColumn: "span 4",
+                borderRadius: 18,
                 overflow: "hidden",
-                padding: 0,
+                border: "1px solid rgba(0,0,0,0.10)",
+                background: "rgba(255,255,255,0.18)",
               }}
             >
-              {/* Image */}
+              {/* Big square image tile */}
               <button
                 type="button"
                 onClick={() => setLightbox(d)}
@@ -360,33 +305,24 @@ export default function DesignsPage() {
                   width: "100%",
                   display: "block",
                 }}
-                aria-label={`Open image: ${d.title}`}
+                aria-label={`Open ${d.id}`}
               >
-                <div style={{ position: "relative", width: "100%", aspectRatio: "4/3" }}>
-                  <Image src={d.image} alt={d.title} fill style={{ objectFit: "cover" }} />
+                <div style={{ position: "relative", width: "100%", aspectRatio: "1 / 1" }}>
+                  <Image src={d.image} alt={`Henna design ${d.id}`} fill style={{ objectFit: "cover" }} />
                 </div>
               </button>
 
-              {/* Content */}
-              <div style={{ padding: 14 }}>
-                <div style={{ display: "flex", justifyContent: "space-between", gap: 12, alignItems: "start" }}>
-                  <div>
-                    <div style={{ fontWeight: 900, fontSize: 16 }}>{d.title}</div>
-                    <div style={{ opacity: 0.85, fontWeight: 800, marginTop: 4 }}>
-                      {formatPriceRange(d.priceFrom, d.priceTo)} • ~{d.timeMins} min
-                    </div>
-                  </div>
-                </div>
+              {/* Minimal info bar */}
+              <div style={{ padding: 10, display: "flex", justifyContent: "space-between", gap: 10, flexWrap: "wrap" }}>
+                <div style={{ fontWeight: 900, fontSize: 18 }}>{formatPriceRange(d.priceFrom, d.priceTo)}</div>
 
-                {/* Tags */}
-                <div style={{ display: "flex", gap: 8, flexWrap: "wrap", marginTop: 10 }}>
-                  {d.tags.map((t) => (
+                <div style={{ display: "flex", gap: 6, flexWrap: "wrap" }}>
+                  {d.tags.slice(0, 2).map((t) => (
                     <span
                       key={t}
                       style={{
                         fontSize: 12,
                         fontWeight: 900,
-                        letterSpacing: 0.5,
                         padding: "6px 10px",
                         borderRadius: 999,
                         border: "1px solid rgba(0,0,0,0.12)",
@@ -398,10 +334,8 @@ export default function DesignsPage() {
                   ))}
                 </div>
 
-                {d.note ? <div style={{ marginTop: 10, opacity: 0.9, fontSize: 13 }}>{d.note}</div> : null}
-
-                <div style={{ display: "flex", gap: 10, flexWrap: "wrap", marginTop: 12 }}>
-                  <a className="btnPrim" href={`/book?design=${encodeURIComponent(d.title)}`}>
+                <div style={{ width: "100%", display: "flex", gap: 10, marginTop: 6, flexWrap: "wrap" }}>
+                  <a className="btnPrim" href={`/book?design=${encodeURIComponent(d.id)}`}>
                     Book this style
                   </a>
 
@@ -426,43 +360,31 @@ export default function DesignsPage() {
                       background: "rgba(255,255,255,0.25)",
                       cursor: "pointer",
                       fontWeight: 900,
-                      letterSpacing: 0.5,
                     }}
                   >
                     Share
                   </button>
                 </div>
+
+                {d.note ? <div style={{ width: "100%", marginTop: 6, opacity: 0.9, fontSize: 13 }}>{d.note}</div> : null}
               </div>
             </div>
           ))}
         </div>
 
-        {/* Responsive columns */}
+        {/* Responsive */}
         <style jsx>{`
           @media (max-width: 1100px) {
-            div[style*="grid-template-columns: repeat(12, 1fr)"] > div {
-              grid-column: span 6 !important;
+            div[style*="grid-template-columns: repeat(3"] {
+              grid-template-columns: repeat(2, 1fr) !important;
             }
           }
           @media (max-width: 700px) {
-            div[style*="grid-template-columns: repeat(12, 1fr)"] > div {
-              grid-column: span 12 !important;
+            div[style*="grid-template-columns: repeat(3"] {
+              grid-template-columns: 1fr !important;
             }
           }
         `}</style>
-
-        {/* Bottom CTA */}
-        <section className="card" style={{ margin: "22px auto 0", textAlign: "center" }}>
-          <h2 className="h3" style={{ marginTop: 0 }}>
-            Not sure what to pick?
-          </h2>
-          <p style={{ marginBottom: 18, opacity: 0.9 }}>
-            Request a booking and mention your preferred style + time, and I’ll recommend options.
-          </p>
-          <a className="btnPrim" href="/book">
-            Book an appointment
-          </a>
-        </section>
       </div>
 
       {/* Lightbox */}
@@ -474,8 +396,8 @@ export default function DesignsPage() {
           style={{
             position: "fixed",
             inset: 0,
-            zIndex: 60,
-            background: "rgba(0,0,0,0.65)",
+            zIndex: 9999,
+            background: "rgba(0,0,0,0.75)",
             display: "flex",
             alignItems: "center",
             justifyContent: "center",
@@ -485,11 +407,11 @@ export default function DesignsPage() {
           <div
             onClick={(e) => e.stopPropagation()}
             style={{
-              width: "min(980px, 96vw)",
+              width: "min(1100px, 96vw)",
               borderRadius: 18,
               overflow: "hidden",
               background: "rgba(255,255,255,0.98)",
-              border: "1px solid rgba(0,0,0,0.12)",
+              border: "1px solid rgba(255,255,255,0.18)",
               boxShadow: "0 25px 60px rgba(0,0,0,0.35)",
             }}
           >
@@ -503,7 +425,7 @@ export default function DesignsPage() {
               }}
             >
               <div style={{ fontWeight: 900, opacity: 0.9 }}>
-                {lightbox.title} • {formatPriceRange(lightbox.priceFrom, lightbox.priceTo)}
+                {formatPriceRange(lightbox.priceFrom, lightbox.priceTo)} • {lightbox.tags.join(", ")}
               </div>
               <button
                 type="button"
@@ -521,27 +443,8 @@ export default function DesignsPage() {
               </button>
             </div>
 
-            <div style={{ position: "relative", width: "100%", aspectRatio: "16/10" }}>
-              <Image src={lightbox.image} alt={lightbox.title} fill style={{ objectFit: "cover" }} />
-            </div>
-
-            <div style={{ padding: 14, display: "flex", gap: 10, flexWrap: "wrap" }}>
-              <a className="btnPrim" href={`/book?design=${encodeURIComponent(lightbox.title)}`}>
-                Book this style
-              </a>
-              <a
-                href="/book"
-                style={{
-                  border: "1px solid rgba(0,0,0,0.14)",
-                  borderRadius: 10,
-                  padding: "10px 12px",
-                  textDecoration: "none",
-                  fontWeight: 900,
-                  letterSpacing: 0.5,
-                }}
-              >
-                Request a custom design
-              </a>
+            <div style={{ position: "relative", width: "100%", aspectRatio: "16 / 10" }}>
+              <Image src={lightbox.image} alt={`Henna design ${lightbox.id}`} fill style={{ objectFit: "contain" }} />
             </div>
           </div>
         </div>
