@@ -438,8 +438,9 @@ export default function UpcomingEventsPage() {
           </div>
         </nav>
       </header>
-
-      {/* Intro */}
+      <h1 className="h2" style={{ fontSize: 32, textAlign: "center", marginBottom: 24 }}>Upcoming Events Currently Unavailable</h1>
+    {/*
+      Intro
       <section className="sectionHead" style={{ marginBottom: 10 }}>
         <h1 className="h2">Events to Come</h1>
         <p className="sub">
@@ -447,8 +448,9 @@ export default function UpcomingEventsPage() {
           events to your calendar.
         </p>
       </section>
-
+   */}
       {/* Highlight (next event) */}
+      {/*
       {nextEvent ? (
         <section className="card" style={{ maxWidth: 1200, margin: "0 auto 14px" }}>
           <div
@@ -522,9 +524,10 @@ export default function UpcomingEventsPage() {
           </div>
         </section>
       ) : null}
-
+  */}
       {/* Sticky Filters + View Toggle */}
-      <div
+      
+      {/* <div
         style={{
           position: "sticky",
           top: 0,
@@ -652,7 +655,6 @@ export default function UpcomingEventsPage() {
           </div>
         </div>
 
-        {/* Small responsive fallback */}
         <style jsx>{`
           @media (max-width: 980px) {
             div[style*="grid-template-columns: 1fr 170px 170px 220px"] {
@@ -664,13 +666,13 @@ export default function UpcomingEventsPage() {
             }
           }
         `}</style>
-      </div>
+      </div> */}
 
       {/* Optional calendar */}
-      {view === "Calendar" ? <CalendarView /> : null}
+      {/* {view === "Calendar" ? <CalendarView /> : null} */}
 
       {/* List (always useful; even in Calendar view we still show full details) */}
-      <div style={{ maxWidth: 1200, margin: "0 auto", padding: "0 24px 70px" }}>
+      {/* <div style={{ maxWidth: 1200, margin: "0 auto", padding: "0 24px 70px" }}>
         {filtered.length === 0 ? (
           <section className="card" style={{ margin: "16px auto 0", textAlign: "center" }}>
             <h2 className="h3" style={{ marginTop: 0 }}>
@@ -856,7 +858,7 @@ export default function UpcomingEventsPage() {
           </div>
         ))}
 
-        {/* Bottom CTA */}
+        
         <section className="card" style={{ margin: "22px auto 0", textAlign: "center" }}>
           <h2 className="h3" style={{ marginTop: 0 }}>
             Don’t see the date you need?
@@ -868,7 +870,10 @@ export default function UpcomingEventsPage() {
             Request a booking
           </a>
         </section>
-      </div>
+      
+      
+      </div> */}
+      
     </main>
   );
 }

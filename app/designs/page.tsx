@@ -22,39 +22,39 @@ type Design = {
 };
 
 const DESIGNS: Design[] = [
-  { id: "blackhennadomevines", priceFrom: 0, priceTo: 0, tags: ["Black Henna","Dome","Vines"], image: "/designs/Blackhennadomevines.jpeg" },
+  { id: "blackhennadomevines", priceFrom: 9, priceTo: 10, tags: ["Black Henna","Dome","Vines"], image: "/designs/Blackhennadomevines.jpeg" },
 
-  { id: "blackhenna-vines-1", priceFrom: 0, priceTo: 0, tags: ["Black Henna","Vines"], image: "/designs/BlackhennaVines-1.jpeg" },
+  { id: "blackhenna-vines-1", priceFrom: 13, priceTo: 15, tags: ["Black Henna","Vines"], image: "/designs/BlackhennaVines-1.jpeg" },
 
-  { id: "blackhenna-vinesfloral-1", priceFrom: 0, priceTo: 0, tags: ["Black Henna","Floral","Vines"], image: "/designs/Blackhennavinesfloral-1.jpeg" },
+  { id: "blackhenna-vinesfloral-1", priceFrom: 9, priceTo: 10, tags: ["Black Henna","Floral","Vines"], image: "/designs/Blackhennavinesfloral-1.jpeg" },
 
-  { id: "blackhenna-vinesfloral-2", priceFrom: 0, priceTo: 0, tags: ["Black Henna","Floral","Vines"], image: "/designs/Blackhennavinesfloral-2.jpeg" },
+  { id: "blackhenna-vinesfloral-2", priceFrom: 9, priceTo: 10, tags: ["Black Henna","Floral","Vines"], image: "/designs/Blackhennavinesfloral-2.jpeg" },
 
-  { id: "dome-1", priceFrom: 0, priceTo: 0, tags: ["Dome"], image: "/designs/Dome-1.jpeg" },
+  { id: "dome-1", priceFrom: 9, priceTo: 10, tags: ["Dome"], image: "/designs/Dome-1.jpeg" },
 
-  { id: "floral-1", priceFrom: 0, priceTo: 0, tags: ["Floral"], image: "/designs/floral-1.jpeg" },
+  { id: "floral-1", priceFrom: 6, priceTo: 7, tags: ["Floral"], image: "/designs/floral-1.jpeg" },
 
-  { id: "floral-2", priceFrom: 0, priceTo: 0, tags: ["Floral"], image: "/designs/floral-2.JPG" },
+  { id: "floral-2", priceFrom: 13, priceTo: 15, tags: ["Floral"], image: "/designs/floral-2.JPG" },
 
-  { id: "floral-3", priceFrom: 0, priceTo: 0, tags: ["Floral"], image: "/designs/floral-3.jpeg" },
+  { id: "floral-3", priceFrom: 9, priceTo: 10, tags: ["Floral"], image: "/designs/floral-3.jpeg" },
 
-  { id: "floral-4", priceFrom: 0, priceTo: 0, tags: ["Floral"], image: "/designs/floral-4.jpeg" },
+  { id: "floral-4", priceFrom: 9, priceTo: 10, tags: ["Floral"], image: "/designs/floral-4.jpeg" },
 
-  { id: "floral-dome-blackhenna", priceFrom: 0, priceTo: 0, tags: ["Floral","Dome","Black Henna"], image: "/designs/Floraldomeblackhenna-1.jpeg" },
+  { id: "floral-dome-blackhenna", priceFrom: 13, priceTo: 15, tags: ["Floral","Dome","Black Henna"], image: "/designs/Floraldomeblackhenna-1.jpeg" },
 
-  { id: "floral-mandala-vines-blackhenna", priceFrom: 0, priceTo: 0, tags: ["Floral","Mandala","Vines","Black Henna"], image: "/designs/Floralmandalavinesblackhenna-1.JPG" },
+  { id: "floral-mandala-vines-blackhenna", priceFrom: 13, priceTo: 15, tags: ["Floral","Mandala","Vines","Black Henna"], image: "/designs/Floralmandalavinesblackhenna-1.JPG" },
 
-  { id: "minimalistic-vines-1", priceFrom: 0, priceTo: 0, tags: ["Minimalistic","Vines"], image: "/designs/MinimalisticVines-1.jpeg" },
+  { id: "minimalistic-vines-1", priceFrom: 6, priceTo: 8, tags: ["Minimalistic","Vines"], image: "/designs/MinimalisticVines-1.jpeg" },
 
-  { id: "minimalistic-1", priceFrom: 0, priceTo: 0, tags: ["Minimalistic"], image: "/designs/simplistic-1.jpeg" },
+  { id: "minimalistic-1", priceFrom: 7, priceTo: 8, tags: ["Minimalistic"], image: "/designs/simplistic-1.jpeg" },
 
-  { id: "tattoo-1", priceFrom: 0, priceTo: 0, tags: ["Tattoo Style"], image: "/designs/tattoo-1.jpeg" },
+  { id: "tattoo-1", priceFrom: 7, priceTo: 8, tags: ["Tattoo Style"], image: "/designs/tattoo-1.jpeg" },
 
-  { id: "tattoo-2", priceFrom: 0, priceTo: 0, tags: ["Tattoo Style"], image: "/designs/tattoo-2.jpeg" },
+  { id: "tattoo-2", priceFrom: 7, priceTo: 8, tags: ["Tattoo Style"], image: "/designs/tattoo-2.jpeg" },
 
-  { id: "vines-1", priceFrom: 0, priceTo: 0, tags: ["Vines"], image: "/designs/Vines-1.JPG" },
+  { id: "vines-1", priceFrom: 7, priceTo: 8, tags: ["Vines"], image: "/designs/Vines-1.JPG" },
 
-  { id: "vines-dome-minimalistic-1", priceFrom: 0, priceTo: 0, tags: ["Vines","Dome","Minimalistic"], image: "/designs/Vinesdomeminimalistic-1.jpeg" },
+  { id: "vines-dome-minimalistic-1", priceFrom: 7, priceTo: 8, tags: ["Vines","Dome","Minimalistic"], image: "/designs/Vinesdomeminimalistic-1.jpeg" },
 ];
 
 const ALL_TAGS: StyleTag[] = [

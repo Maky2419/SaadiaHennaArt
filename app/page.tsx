@@ -121,7 +121,7 @@ export default function Home() {
 
       {/* BODY */}
       <main className="main">
-        {/* Photos */}
+        {/* Photos
         <section className="section">
           <div className="sectionHead">
             <h2 className="h2">Designs</h2>
@@ -153,7 +153,7 @@ export default function Home() {
               <div className="photoCap">Custom design</div>
             </div>
           </div>
-        </section>
+        </section> */}
 
         {/* Aftercare + Booking side-by-side */}
 <section className="section">
