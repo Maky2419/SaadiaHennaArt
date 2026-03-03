@@ -78,17 +78,14 @@ export default function BookPage() {
           </div>
         </nav>
       </header>
-
-      <h1 className="h2" style={{ fontSize: 32, textAlign: "center", marginBottom: 24 }}>Book page currently unavailable </h1>
-
       {/* //Page intro */}
-      {/* <section className="sectionHead">
+      <section className="sectionHead">
         <h1 className="h2" style={{ fontSize: 32 }}>Book an appointment</h1>
         <p className="sub">
         </p>
-      </section> */}
+      </section>
 
-      {/* Booking form
+        {/* Booking form */}
       <form className="card" onSubmit={onSubmit} style={{ maxWidth: 820, margin: "0 auto" }}>
         <div className="formGrid">
           <div className="field">
@@ -148,7 +145,7 @@ export default function BookPage() {
           {ok && <span className="muted">{ok}</span>}
           {err && <span style={{ color: "#7a1f1a", fontWeight: 800 }}>{err}</span>}
         </div>
-      </form> */}
+      </form>
     </main>
   );
 }

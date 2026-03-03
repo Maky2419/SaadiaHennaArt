@@ -1,7 +1,9 @@
 import { NextResponse } from "next/server";
 import crypto from "crypto";
 import { prisma } from "@/lib/prisma";
-import { getTransport, fromAddress } from "@/lib/mailer";
+import { Resend } from "resend";
+
+const resend = new Resend(process.env.RESEND_API_KEY);
 
 function bad(msg: string, status = 400) {
   return NextResponse.json({ ok: false, error: msg }, { status });
@@ -28,6 +30,14 @@ export async function POST(req: Request) {
     if (!endIso || isNaN(Date.parse(endIso))) return bad("Valid end time required");
     if (new Date(endIso) <= new Date(startIso)) return bad("End must be after start");
 
+    if (!process.env.RESEND_API_KEY) return bad("Missing RESEND_API_KEY", 500);
+    if (!process.env.APP_URL) return bad("Missing APP_URL", 500);
+
+    const notifyTo = process.env.BOOKING_NOTIFY_EMAIL || process.env.SMTP_USER; // fallback
+    if (!notifyTo) return bad("Missing BOOKING_NOTIFY_EMAIL", 500);
+
+    const from = process.env.RESEND_FROM || "Saadia's Henna Art <onboarding@resend.dev>";
+
     const confirmToken = crypto.randomBytes(24).toString("hex");
 
     const booking = await prisma.booking.create({
@@ -45,15 +55,14 @@ export async function POST(req: Request) {
       },
     });
 
-    // email Saadia
-    const appUrl = process.env.APP_URL!;
-    const confirmLink = `${appUrl}/api/bookings/confirm?token=${confirmToken}`;
+    const confirmLink = `${process.env.APP_URL}/api/bookings/confirm?token=${confirmToken}`;
 
-    const transporter = getTransport();
-    await transporter.sendMail({
-      from: fromAddress(),
-      to: process.env.SMTP_USER, // 22Saadiaa@gmail.com
+    // Send notification email to Saadia (you)
+    const sendResult = await resend.emails.send({
+      from,
+      to: notifyTo,
       subject: `New booking request: ${booking.fullName} (${booking.eventType})`,
+      replyTo: booking.email, // so you can reply directly to the client
       html: `
         <div style="font-family:Arial,sans-serif;line-height:1.4">
           <h2>New Booking Request</h2>
@@ -78,10 +87,17 @@ export async function POST(req: Request) {
       `,
     });
 
+    // If Resend returns an error object, surface it
+    // @ts-ignore
+    if (sendResult?.error) {
+      // @ts-ignore
+      throw new Error(sendResult.error.message || "Failed to send email");
+    }
+
     return NextResponse.json({ ok: true, id: booking.id });
-  } catch (e) {
+  } catch (e: any) {
     console.error(e);
-    return bad("Server error", 500);
+    return bad(e?.message || "Server error", 500);
   }
 }
 
