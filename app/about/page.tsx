@@ -36,9 +36,6 @@ export default function AboutPage() {
                    <a className="navLink" href="/history">
                      History of Events
                    </a>
-                   <a className="navLink" href="/upcoming">
-                     Events to come
-                   </a>
                    <a className="navLink" href="/book">
                      Book an appointment
                    </a>

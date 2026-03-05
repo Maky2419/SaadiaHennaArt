@@ -1,6 +1,5 @@
 "use client";
 
-import Link from "next/link";
 import Image from "next/image";
 import { useState } from "react";
 
@@ -15,31 +14,26 @@ export default function BookPage() {
     setOk(null);
     setLoading(true);
 
-    const fd = new FormData(e.currentTarget);
-    const payload = {
-      fullName: String(fd.get("fullName") || ""),
-      email: String(fd.get("email") || ""),
-      phone: String(fd.get("phone") || ""),
-      eventType: String(fd.get("eventType") || ""),
-      location: String(fd.get("location") || ""),
-      notes: String(fd.get("notes") || ""),
-      startIso: String(fd.get("startIso") || ""),
-      endIso: String(fd.get("endIso") || ""),
-      timezone: Intl.DateTimeFormat().resolvedOptions().timeZone || "America/Vancouver",
-    };
-
     try {
+      const formEl = e.currentTarget;
+      const fd = new FormData(formEl);
+
+      // Add timezone client-side
+      fd.set(
+        "timezone",
+        Intl.DateTimeFormat().resolvedOptions().timeZone || "America/Vancouver"
+      );
+
       const res = await fetch("/api/bookings", {
         method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(payload),
+        body: fd, // IMPORTANT: send as multipart/form-data automatically
       });
 
       const data = await res.json();
       if (!data.ok) throw new Error(data.error || "Failed to submit request");
 
       setOk("Request sent! You’ll get an email confirmation of your booking soon.");
-      (e.target as HTMLFormElement).reset();
+      formEl.reset();
     } catch (ex: any) {
       setErr(ex?.message || "Something went wrong");
     } finally {
@@ -63,7 +57,7 @@ export default function BookPage() {
                 style={{ objectFit: "cover" }}
               />
             </div>
-            <div className="brandTitle">Saadia's Henna Art</div>
+            <div className="brandTitle">Saadia&apos;s Henna Art</div>
           </div>
         </div>
 
@@ -72,20 +66,17 @@ export default function BookPage() {
             <a className="navLink" href="/">Home</a>
             <a className="navLink" href="/designs">Designs</a>
             <a className="navLink" href="/history">History of Events</a>
-            <a className="navLink" href="/upcoming">Events to come</a>
             <a className="navLink" href="/book">Book an appointment</a>
             <a className="navLink" href="/about">About me</a>
           </div>
         </nav>
       </header>
-      {/* //Page intro */}
+
       <section className="sectionHead">
         <h1 className="h2" style={{ fontSize: 32 }}>Book an appointment</h1>
-        <p className="sub">
-        </p>
+        <p className="sub"></p>
       </section>
 
-        {/* Booking form */}
       <form className="card" onSubmit={onSubmit} style={{ maxWidth: 820, margin: "0 auto" }}>
         <div className="formGrid">
           <div className="field">
@@ -135,6 +126,15 @@ export default function BookPage() {
               rows={4}
               placeholder="Design size, placement, inspiration, etc."
             />
+          </div>
+
+          {/* NEW */}
+          <div className="field" style={{ gridColumn: "1 / -1" }}>
+            <label className="label">Reference image (optional)</label>
+            <input className="input" name="referenceImage" type="file" accept="image/*" />
+            <div className="muted" style={{ marginTop: 6 }}>
+              Optional: inspiration photo. It’s emailed to the admin only (not saved).
+            </div>
           </div>
         </div>
 

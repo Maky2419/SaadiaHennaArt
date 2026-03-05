@@ -11,7 +11,7 @@ export default function Home() {
       <div className="announceBar">
         <div className="announceInner">
           <span className="announceText">
-            ✦ Now booking events + private appointments ✦ DM to reserve your spot ✦
+            ✦ Now booking events + private appointments ✦ Book to reserve your spot ✦
           </span>
         </div>
       </div>
@@ -45,9 +45,6 @@ export default function Home() {
                   <a className="navLink" href="/history">
                     History of Events
                   </a>
-                  <a className="navLink" href="/upcoming">
-                    Events to come
-                  </a>
                   <a className="navLink" href="/book">
                     Book an appointment
                   </a>
@@ -63,7 +60,7 @@ export default function Home() {
       <section className="hero">
         <div className="heroImg">
           <Image
-            src="/hero.jpg"
+            src="/designs/floral-1.jpeg"
             alt="Henna design on hand"
             fill
             priority
@@ -82,9 +79,7 @@ export default function Home() {
               <Link href="/book" className="btnPrimary">
   Go to Booking Page
 </Link>
-              <a className="btnGhost" href="#aftercare">
-                Aftercare
-              </a>
+      
             </div>
           </div>
         </div>
@@ -180,12 +175,12 @@ export default function Home() {
       <div className="priceRow">
         <div className="priceBox">
           <div className="priceLabel">Events</div>
-          <div className="priceValue">$22 / hour</div>
+          <div className="priceValue">$25 / hour</div>
         </div>
 
         <div className="priceBox">
           <div className="priceLabel">Private</div>
-          <div className="priceValue">$7–10 / design</div>
+          <div className="priceValue">$7–15 / design</div>
         </div>
       </div>
 
