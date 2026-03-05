@@ -307,26 +307,46 @@ a{ color: inherit; }
   background: rgba(106,59,43,.28);
   border-bottom: 1px solid rgba(74,42,31,.18);
 }
+
+/* ✅ FIX: make the 3 feature boxes align + stretch equally */
 .featureInner{
   width: min(var(--max), 100%);
   margin: 0 auto;
   padding: 16px 16px;
+
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 14px;
+
+  align-items: stretch; /* IMPORTANT */
 }
+
 @media (max-width: 900px){
   .featureInner{ grid-template-columns: 1fr; }
 }
+
+/* ✅ FIX: make each feature box fill the grid height */
 .featureItem{
   display: flex;
   gap: 12px;
   align-items: center;
+
   padding: 12px;
   border-radius: 18px;
   border: 1px solid rgba(255,255,255,.20);
   background: rgba(255,255,255,.10);
+
+  height: 100%; /* IMPORTANT */
 }
+
+/* ✅ FIX: you use featureText in JSX but it wasn’t defined */
+.featureText{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  min-width: 0;
+}
+
 .featureIcon{
   width: 36px;
   height: 36px;
@@ -555,12 +575,13 @@ code{
     width: 100%;
   }
 }
+
 /* Ensure grid items stretch equally */
 .aftercareBookingGrid {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 32px;
-  align-items: stretch; /* key line */
+  align-items: stretch;
 }
 
 /* Make cards fill the full grid height */
@@ -604,6 +625,7 @@ code{
   background: rgba(255,255,255,.28);
 }
 textarea.input{ resize: vertical; }
+
 /* ===== FULL-WIDTH HEADER (break out of centered main) ===== */
 .header {
   width: 100vw;
@@ -634,13 +656,13 @@ textarea.input{ resize: vertical; }
 /* ===== REDUCE WHITE SPACE BELOW HEADER ===== */
 .sectionHead {
   max-width: 1200px;
-  margin: 18px auto 14px; /* smaller top/bottom gap */
+  margin: 18px auto 14px;
   padding: 0 24px;
 }
 
 /* ===== WIDEN THE BOXES (cards) ===== */
 .card {
-  max-width: 1200px !important; /* was 900 in inline styles */
+  max-width: 1200px !important;
   margin-left: auto !important;
   margin-right: auto !important;
 }

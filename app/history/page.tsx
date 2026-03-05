@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import { useEffect, useMemo, useRef, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 
 type EventImage = { src: string; alt: string };
 
@@ -24,11 +24,8 @@ const EVENTS: PastEvent[] = [
     location: "Kelowna",
     description:
       "Community market event offering walk-in henna designs ranging from minimalist to detailed florals.",
-    images: [
-      { src: "/events/BlackHistoryMonthmarket.png", alt: "Black History Month market henna" },
-    ],
+    images: [{ src: "/events/BlackHistoryMonthmarket.png", alt: "Black History Month market henna" }],
   },
-
   {
     id: "carnival",
     year: 2025,
@@ -43,21 +40,18 @@ const EVENTS: PastEvent[] = [
       { src: "/events/Carnival-3.jpeg", alt: "Carnival henna 3" },
     ],
   },
-
   {
     id: "diwali-event",
     year: 2025,
     title: "Indian Student Association Diwali",
     date: "2025",
     location: "Kelowna",
-    description:
-      "Festive Diwali event featuring mandalas, florals, and detailed celebration designs.",
+    description: "Festive Diwali event featuring mandalas, florals, and detailed celebration designs.",
     images: [
       { src: "/events/IndianStudentAssociationDiwali-1.jpeg", alt: "Diwali henna 1" },
       { src: "/events/IndianStudentAssociationDiwali-2.jpeg", alt: "Diwali henna 2" },
     ],
   },
-
   {
     id: "okanagan-asian-cultural-fest",
     year: 2025,
@@ -73,71 +67,56 @@ const EVENTS: PastEvent[] = [
       { src: "/events/OkanaganAsianCulturalFest-4.jpeg", alt: "Asian fest henna 4" },
     ],
   },
-
   {
     id: "wrc-hijab-day",
     year: 2024,
     title: "Women Resource Center – World Hijab Day",
     date: "2024",
     location: "Women Resource Center",
-    description:
-      "Community event with approachable henna styles and custom requests.",
-    images: [
-      { src: "/events/WomenResourceCenterWorldHijabDayEvent.jpeg", alt: "WRC henna design" },
-    ],
+    description: "Community event with approachable henna styles and custom requests.",
+    images: [{ src: "/events/WomenResourceCenterWorldHijabDayEvent.jpeg", alt: "WRC henna design" }],
   },
 ];
 
-function groupByYear(events: PastEvent[]) {
-  const map = new Map<number, PastEvent[]>();
-  for (const e of events) {
-    if (!map.has(e.year)) map.set(e.year, []);
-    map.get(e.year)!.push(e);
-  }
-  return Array.from(map.entries()).sort((a, b) => b[0] - a[0]);
-}
-
 function TopHeader() {
   return (
-      <header className="header">
-                   <div className="headerInner">
-                     <div className="brandLeft" style={{ display: "flex", alignItems: "center", gap: 14 }}>
-                       <div className="brandLogoImg">
-                         <Image
-                           src="/logo.jpg"
-                           alt="Saadia's Henna Art logo"
-                           fill
-                           priority
-                           sizes="56px"
-                           style={{ objectFit: "cover" }}
-                         />
-                       </div>
-                       <div className="brandTitle">Saadia's Henna Art</div>
-                     </div>
-                   </div>
-           
-                   <nav className="navRow" aria-label="Primary navigation">
-                     <div className="navInner">
-                       <a className="navLink" href="/">
-                         Home
-                       </a>
-                       <a className="navLink" href="/designs">
-                         Designs
-                       </a>
-                       <a className="navLink" href="/history">
-                         History of Events
-                       </a>
-                       
-                       <a className="navLink" href="/book">
-                         Book an appointment
-                       </a>
-                       <a className="navLink" href="/about">
-                         About me
-                       </a>
-                    
-                     </div>
-                   </nav>
-                 </header>
+    <header className="header">
+      <div className="headerInner">
+        <div className="brandLeft" style={{ display: "flex", alignItems: "center", gap: 14 }}>
+          <div className="brandLogoImg">
+            <Image
+              src="/logo.jpg"
+              alt="Saadia's Henna Art logo"
+              fill
+              priority
+              sizes="56px"
+              style={{ objectFit: "cover" }}
+            />
+          </div>
+          <div className="brandTitle">Saadia&apos;s Henna Art</div>
+        </div>
+      </div>
+
+      <nav className="navRow" aria-label="Primary navigation">
+        <div className="navInner">
+          <a className="navLink" href="/">
+            Home
+          </a>
+          <a className="navLink" href="/designs">
+            Designs
+          </a>
+          <a className="navLink" href="/history">
+            History of Events
+          </a>
+          <a className="navLink" href="/book">
+            Book an appointment
+          </a>
+          <a className="navLink" href="/about">
+            About me
+          </a>
+        </div>
+      </nav>
+    </header>
   );
 }
 
@@ -170,9 +149,7 @@ function EventCard({
         </div>
       </div>
 
-      <p style={{ marginTop: 0, marginBottom: 16, opacity: 0.92 }}>
-        {event.description}
-      </p>
+      <p style={{ marginTop: 0, marginBottom: 16, opacity: 0.92 }}>{event.description}</p>
 
       <div
         style={{
@@ -235,10 +212,14 @@ function EventCard({
 }
 
 export default function HistoryPage() {
-  const grouped = useMemo(() => groupByYear(EVENTS), []);
-  const years = useMemo(() => grouped.map(([y]) => y), [grouped]);
+  // Long page: just sort newest -> oldest
+  const sorted = useMemo(() => {
+    return [...EVENTS].sort((a, b) => {
+      if (b.year !== a.year) return b.year - a.year;
+      return a.title.localeCompare(b.title);
+    });
+  }, []);
 
-  const yearRefs = useRef<Record<number, HTMLDivElement | null>>({});
   const [showTop, setShowTop] = useState(false);
   const [lightbox, setLightbox] = useState<EventImage | null>(null);
 
@@ -257,69 +238,9 @@ export default function HistoryPage() {
     return () => window.removeEventListener("keydown", onKey);
   }, []);
 
-  const scrollToYear = (year: number) => {
-    const el = yearRefs.current[year];
-    if (!el) return;
-    el.scrollIntoView({ behavior: "smooth", block: "start" });
-  };
-
   return (
     <main className="main">
       <TopHeader />
-
-      {/* Sticky Jump Bar */}
-      <div
-        style={{
-          position: "sticky",
-          top: 0,
-          zIndex: 30,
-          background: "rgba(245, 236, 216, 0.92)",
-          borderBottom: "1px solid rgba(0,0,0,0.08)",
-          backdropFilter: "blur(8px)",
-        }}
-      >
-        <div
-          style={{
-            maxWidth: 1200,
-            margin: "0 auto",
-            padding: "10px 24px",
-            display: "flex",
-            alignItems: "center",
-            justifyContent: "space-between",
-            gap: 16,
-            flexWrap: "wrap",
-          }}
-        >
-          <div style={{ fontWeight: 800, letterSpacing: 0.6 }}>
-            Jump to year:
-          </div>
-
-          <div style={{ display: "flex", gap: 10, flexWrap: "wrap" }}>
-            {years.map((y) => (
-              <button
-                key={y}
-                type="button"
-                onClick={() => scrollToYear(y)}
-                style={{
-                  border: "1px solid rgba(0,0,0,0.18)",
-                  background: "rgba(255,255,255,0.35)",
-                  borderRadius: 999,
-                  padding: "6px 12px",
-                  cursor: "pointer",
-                  fontWeight: 700,
-                  letterSpacing: 0.4,
-                }}
-              >
-                {y}
-              </button>
-            ))}
-          </div>
-
-          <a className="btnPrim" href="/book" style={{ textDecoration: "none" }}>
-            Book an appointment
-          </a>
-        </div>
-      </div>
 
       {/* Page intro */}
       <section className="sectionHead" style={{ marginBottom: 6 }}>
@@ -331,30 +252,8 @@ export default function HistoryPage() {
 
       {/* Content */}
       <div style={{ maxWidth: 1200, margin: "0 auto", padding: "0 24px 70px" }}>
-        {grouped.map(([year, events]) => (
-          <div
-            key={year}
-            ref={(el) => {
-              yearRefs.current[year] = el;
-            }}
-            style={{ marginTop: 22 }}
-          >
-            <h2
-              style={{
-                margin: "10px 0 8px",
-                fontSize: 22,
-                fontWeight: 900,
-                letterSpacing: 0.6,
-                opacity: 0.95,
-              }}
-            >
-              {year}
-            </h2>
-
-            {events.map((e) => (
-              <EventCard key={e.id} event={e} onImageClick={(img) => setLightbox(img)} />
-            ))}
-          </div>
+        {sorted.map((e) => (
+          <EventCard key={e.id} event={e} onImageClick={(img) => setLightbox(img)} />
         ))}
 
         {/* Bottom CTA */}
