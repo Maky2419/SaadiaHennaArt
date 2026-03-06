@@ -24,7 +24,7 @@ const EVENTS: PastEvent[] = [
     location: "Kelowna",
     description:
       "Community market event offering walk-in henna designs ranging from minimalist to detailed florals.",
-    images: [{ src: "/events/BlackHistoryMonthmarket.png", alt: "Black History Month market henna" }],
+    images: [{ src: "/events/BlackHistoryMonthmarket.jpg", alt: "Black History Month market henna" }],
   },
   {
     id: "carnival",
@@ -35,9 +35,9 @@ const EVENTS: PastEvent[] = [
     description:
       "Busy carnival booth featuring quick florals, vines, and custom mini designs throughout the day.",
     images: [
-      { src: "/events/Carnival-1.jpeg", alt: "Carnival henna 1" },
-      { src: "/events/Carnival-2.jpeg", alt: "Carnival henna 2" },
-      { src: "/events/Carnival-3.jpeg", alt: "Carnival henna 3" },
+      { src: "/events/Carnival-1.jpg", alt: "Carnival henna 1" },
+      { src: "/events/Carnival-2.jpg", alt: "Carnival henna 2" },
+      { src: "/events/Carnival-3.jpg", alt: "Carnival henna 3" },
     ],
   },
   {
@@ -48,8 +48,8 @@ const EVENTS: PastEvent[] = [
     location: "Kelowna",
     description: "Festive Diwali event featuring mandalas, florals, and detailed celebration designs.",
     images: [
-      { src: "/events/IndianStudentAssociationDiwali-1.jpeg", alt: "Diwali henna 1" },
-      { src: "/events/IndianStudentAssociationDiwali-2.jpeg", alt: "Diwali henna 2" },
+      { src: "/events/IndianStudentAssociationDiwali-1.jpg", alt: "Diwali henna 1" },
+      { src: "/events/IndianStudentAssociationDiwali-2.jpg", alt: "Diwali henna 2" },
     ],
   },
   {
@@ -61,10 +61,10 @@ const EVENTS: PastEvent[] = [
     description:
       "Large community festival booth offering a mix of floral, mandala, and custom designs.",
     images: [
-      { src: "/events/OkanaganAsianCulturalFest-1.jpeg", alt: "Asian fest henna 1" },
-      { src: "/events/OkanaganAsianCulturalFest-2.jpeg", alt: "Asian fest henna 2" },
-      { src: "/events/OkanaganAsianCulturalFest-3.jpeg", alt: "Asian fest henna 3" },
-      { src: "/events/OkanaganAsianCulturalFest-4.jpeg", alt: "Asian fest henna 4" },
+      { src: "/events/OkanaganAsianCulturalFest-1.jpg", alt: "Asian fest henna 1" },
+      { src: "/events/OkanaganAsianCulturalFest-2.jpg", alt: "Asian fest henna 2" },
+      { src: "/events/OkanaganAsianCulturalFest-3.jpg", alt: "Asian fest henna 3" },
+      { src: "/events/OkanaganAsianCulturalFest-4.jpg", alt: "Asian fest henna 4" },
     ],
   },
   {
@@ -74,7 +74,7 @@ const EVENTS: PastEvent[] = [
     date: "2024",
     location: "Women Resource Center",
     description: "Community event with approachable henna styles and custom requests.",
-    images: [{ src: "/events/WomenResourceCenterWorldHijabDayEvent.jpeg", alt: "WRC henna design" }],
+    images: [{ src: "/events/WomenResourceCenterWorldHijabDayEvent.jpg", alt: "WRC henna design" }],
   },
 ];
 

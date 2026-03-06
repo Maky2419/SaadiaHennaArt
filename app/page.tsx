@@ -51,7 +51,7 @@ export default function Home() {
       <section className="hero">
         <div className="heroImg">
           <Image
-            src="/designs/floral-1.jpeg"
+            src="/designs/floral-1.jpg"
             alt="Henna design on hand"
             fill
             priority

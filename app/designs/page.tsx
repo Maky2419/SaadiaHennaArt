@@ -21,59 +21,59 @@ type Design = {
 };
 
 const DESIGNS: Design[] = [
-  { id: "blackhennadomevines", price: 10, tags: ["Black Henna","Dome","Vines"], image: "/designs/Blackhennadomevines.jpeg" },
+  { id: "blackhennadomevines", price: 10, tags: ["Black Henna","Dome","Vines"], image: "/designs/Blackhennadomevines.jpg" },
 
-  { id: "blackhenna-minimalist-1", price: 10, tags: ["Black Henna","Minimalistic"], image: "/designs/BlackhennaMinimalist-1.jpeg" },
+  { id: "blackhenna-minimalist-1", price: 10, tags: ["Black Henna","Minimalistic"], image: "/designs/BlackhennaMinimalist-1.jpg" },
 
-  { id: "blackhenna-vines-1", price: 15, tags: ["Black Henna","Vines"], image: "/designs/BlackhennaVines-1.jpeg" },
+  { id: "blackhenna-vines-1", price: 15, tags: ["Black Henna","Vines"], image: "/designs/BlackhennaVines-1.jpg" },
 
-  { id: "blackhenna-vinesfloral-1", price: 10, tags: ["Black Henna","Floral","Vines"], image: "/designs/Blackhennavinesfloral-1.jpeg" },
+  { id: "blackhenna-vinesfloral-1", price: 10, tags: ["Black Henna","Floral","Vines"], image: "/designs/Blackhennavinesfloral-1.jpg" },
 
-  { id: "blackhenna-vinesfloral-2", price: 10, tags: ["Black Henna","Floral","Vines"], image: "/designs/Blackhennavinesfloral-2.jpeg" },
+  { id: "blackhenna-vinesfloral-2", price: 10, tags: ["Black Henna","Floral","Vines"], image: "/designs/Blackhennavinesfloral-2.jpg" },
 
-  { id: "dome-1", price: 10, tags: ["Dome"], image: "/designs/Dome-1.jpeg" },
+  { id: "dome-1", price: 10, tags: ["Dome"], image: "/designs/Dome-1.jpg" },
 
-  { id: "floral-1", price: 7, tags: ["Floral"], image: "/designs/floral-1.jpeg" },
+  { id: "floral-1", price: 7, tags: ["Floral"], image: "/designs/floral-1.jpg" },
 
-  { id: "floral-2", price: 15, tags: ["Floral"], image: "/designs/floral-2.JPG" },
+  { id: "floral-2", price: 15, tags: ["Floral"], image: "/designs/floral-2.jpg" },
 
-  { id: "floral-3", price: 10, tags: ["Floral"], image: "/designs/floral-3.jpeg" },
+  { id: "floral-3", price: 10, tags: ["Floral"], image: "/designs/floral-3.jpg" },
 
-  { id: "floral-4", price: 10, tags: ["Floral"], image: "/designs/floral-4.jpeg" },
+  { id: "floral-4", price: 10, tags: ["Floral"], image: "/designs/floral-4.jpg" },
 
-  { id: "floral-5", price: 10, tags: ["Floral"], image: "/designs/floral-5.jpeg" },
+  { id: "floral-5", price: 10, tags: ["Floral"], image: "/designs/floral-5.jpg" },
 
-  { id: "floral-6", price: 10, tags: ["Floral"], image: "/designs/floral-6.jpeg" },
+  { id: "floral-6", price: 10, tags: ["Floral"], image: "/designs/floral-6.jpg" },
 
-  { id: "floral-7", price: 10, tags: ["Floral"], image: "/designs/floral-7.png" },
+  { id: "floral-7", price: 10, tags: ["Floral"], image: "/designs/floral-7.jpg" },
 
-  { id: "floral-dome-blackhenna", price: 15, tags: ["Floral","Dome","Black Henna"], image: "/designs/Floraldomeblackhenna-1.jpeg" },
+  { id: "floral-dome-blackhenna", price: 15, tags: ["Floral","Dome","Black Henna"], image: "/designs/Floraldomeblackhenna-1.jpg" },
 
   { id: "floral-mandala-1", price: 15, tags: ["Floral","Mandala"], image: "/designs/floralMandala-1.jpg" },
 
-  { id: "floral-mandala-vines-blackhenna", price: 15, tags: ["Floral","Mandala","Vines","Black Henna"], image: "/designs/Floralmandalavinesblackhenna-1.JPG" },
+  { id: "floral-mandala-vines-blackhenna", price: 15, tags: ["Floral","Mandala","Vines","Black Henna"], image: "/designs/Floralmandalavinesblackhenna-1.jpg" },
 
-  { id: "minimalistic-1", price: 8, tags: ["Minimalistic"], image: "/designs/minimalistic-1.jpeg" },
+  { id: "minimalistic-1", price: 8, tags: ["Minimalistic"], image: "/designs/minimalistic-1.jpg" },
 
-  { id: "minimalistic-2", price: 8, tags: ["Minimalistic"], image: "/designs/minimalistic-2.jpeg" },
+  { id: "minimalistic-2", price: 8, tags: ["Minimalistic"], image: "/designs/minimalistic-2.jpg" },
 
-  { id: "minimalistic-3", price: 8, tags: ["Minimalistic"], image: "/designs/minimalistic-3.jpeg" },
+  { id: "minimalistic-3", price: 8, tags: ["Minimalistic"], image: "/designs/minimalistic-3.jpg" },
 
-  { id: "minimalistic-vines-1", price: 8, tags: ["Minimalistic","Vines"], image: "/designs/MinimalisticVines-1.jpeg" },
+  { id: "minimalistic-vines-1", price: 8, tags: ["Minimalistic","Vines"], image: "/designs/MinimalisticVines-1.jpg" },
 
-  { id: "simplistic-1", price: 8, tags: ["Minimalistic"], image: "/designs/simplistic-1.jpeg" },
+  { id: "simplistic-1", price: 8, tags: ["Minimalistic"], image: "/designs/simplistic-1.jpg" },
 
-  { id: "tattoo-1", price: 8, tags: ["Tattoo Style"], image: "/designs/tattoo-1.jpeg" },
+  { id: "tattoo-1", price: 8, tags: ["Tattoo Style"], image: "/designs/tattoo-1.jpg" },
 
-  { id: "tattoo-2", price: 8, tags: ["Tattoo Style"], image: "/designs/tattoo-2.jpeg" },
+  { id: "tattoo-2", price: 8, tags: ["Tattoo Style"], image: "/designs/tattoo-2.jpg" },
 
-  { id: "tattoo-3", price: 8, tags: ["Tattoo Style"], image: "/designs/tattoo-3.jpeg" },
+  { id: "tattoo-3", price: 8, tags: ["Tattoo Style"], image: "/designs/tattoo-3.jpg" },
 
-  { id: "vines-1", price: 8, tags: ["Vines"], image: "/designs/Vines-1.JPG" },
+  { id: "vines-1", price: 8, tags: ["Vines"], image: "/designs/Vines-1.jpg" },
 
-  { id: "vines-2", price: 8, tags: ["Vines"], image: "/designs/Vines-2.jpeg" },
+  { id: "vines-2", price: 8, tags: ["Vines"], image: "/designs/Vines-2.jpg" },
 
-  { id: "vines-dome-minimalistic-1", price: 8, tags: ["Vines","Dome","Minimalistic"], image: "/designs/Vinesdomeminimalistic-1.jpeg" },
+  { id: "vines-dome-minimalistic-1", price: 8, tags: ["Vines","Dome","Minimalistic"], image: "/designs/Vinesdomeminimalistic-1.jpg" },
 ];
 
 const ALL_TAGS: StyleTag[] = [
